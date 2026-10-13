@@ -229,4 +229,4 @@ Images and video come from my own project repositories:
 
 9. CLASSMATES OR OTHER INDIVIDUALS CONSULTED
 --------------------------------------------
-[Fill in, or write "None"]
+None
