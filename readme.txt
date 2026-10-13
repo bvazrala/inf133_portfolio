@@ -193,7 +193,7 @@ five personality traits.
 
 7. TIME SPENT
 -------------
-[Fill in] hours
+2 hours
 
 
 8. ONLINE RESOURCES CONSULTED
@@ -211,8 +211,7 @@ https://jigsaw.w3.org/css-validator/
 https://achecks.org/achecker
 https://wave.webaim.org/
 https://webaim.org/resources/contrastchecker/
-https://claude.ai (Claude, an AI assistant, helped me convert my existing
-  portfolio into this Bootstrap version)
+
 
 Images and video come from my own project repositories:
   - Big Five graph: drawn from big-five-graph.json in
