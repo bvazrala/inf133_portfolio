@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact Bala Kausik Vazrala about internships, collaborations, or questions about his projects.">
+  <title>Contact | Bala Kausik Vazrala</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Bootstrap 5.3 (layout grid, navbar, buttons, tables, forms) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css" integrity="sha384-qrALq7+6jBOZIQsNnT6xGkMDru64qD6uTlDra39xrt2SoXl4pO3FX6Roz/RpR/BS" crossorigin="anonymous">
+  <!-- Google Fonts: Schibsted Grotesk (headings, interface) and Source Serif 4 (reading text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..800&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&amp;display=swap">
+  <!-- Site styles (loaded last so they override Bootstrap) -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link visually-hidden-focusable" href="#main-content">Skip to main content</a>
+
+  <!-- ===== Site header and navigation (same on every page) ===== -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md" aria-label="Main">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><span class="brand-mark"></span>Bala Kausik Vazrala</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false">
+          <span class="navbar-toggler-icon"></span>
+          <span class="toggler-label">Menu</span>
+        </button>
+        <div class="collapse navbar-collapse" id="site-nav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+      <header class="page-header">
+        <h1>Get in touch</h1>
+        <p class="lead">Happy to chat about my work and collaborate. Internship and job leads are especially welcome.</p>
+      </header>
+
+      <div class="row gy-5 gx-lg-5">
+        <!-- ===== Contact form ===== -->
+        <div class="col-lg-7">
+          <section class="form-panel" aria-labelledby="form-title">
+            <h2 id="form-title">Send a message</h2>
+            <p class="form-intro">This form opens your email app with your message already written, so you can review it before it goes out.</p>
+
+            <!-- Without JavaScript the browser sends the form through the mailto: action.
+                 With JavaScript, js/main.js checks each field and drafts a cleaner email. -->
+            <form id="contact-form" class="contact-form" action="mailto:bvazrala@uci.edu" method="post" enctype="text/plain">
+              <div class="mb-4">
+                <label for="name" class="form-label">Your name</label>
+                <input type="text" class="form-control" id="name" name="name" autocomplete="name" required aria-describedby="name-error">
+                <div class="invalid-feedback" id="name-error"></div>
+              </div>
+
+              <div class="mb-4">
+                <label for="email" class="form-label">Your email</label>
+                <input type="email" class="form-control" id="email" name="email" autocomplete="email" required aria-describedby="email-error">
+                <div class="invalid-feedback" id="email-error"></div>
+              </div>
+
+              <div class="mb-4">
+                <label for="topic" class="form-label">What it's about</label>
+                <select class="form-select" id="topic" name="topic" required aria-describedby="topic-error">
+                  <option value="">Choose a topic</option>
+                  <option>Internship or job opportunity</option>
+                  <option>Project collaboration</option>
+                  <option>Question about my work</option>
+                  <option>Something else</option>
+                </select>
+                <div class="invalid-feedback" id="topic-error"></div>
+              </div>
+
+              <div class="mb-4">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="6" minlength="10" required aria-describedby="message-error"></textarea>
+                <div class="invalid-feedback" id="message-error"></div>
+              </div>
+
+              <button type="submit" class="btn btn-ink"><span class="fa-solid fa-paper-plane" aria-hidden="true"></span>Draft my email</button>
+              <div class="form-status" id="form-status" role="status"></div>
+            </form>
+          </section>
+        </div>
+
+        <!-- ===== Direct contact details ===== -->
+        <div class="col-lg-5">
+          <aside class="contact-panel" aria-labelledby="direct-title">
+            <h2 id="direct-title">Or reach me directly</h2>
+            <ul class="contact-list">
+              <li>
+                <span class="fa-solid fa-envelope" aria-hidden="true"></span>
+                <span><span class="contact-label">Email</span> <a href="mailto:bvazrala@uci.edu">bvazrala@uci.edu</a></span>
+              </li>
+              <li>
+                <span class="fa-brands fa-github" aria-hidden="true"></span>
+                <span><span class="contact-label">GitHub</span> <a href="https://github.com/bvazrala">github.com/bvazrala</a></span>
+              </li>
+              <li>
+                <span class="fa-brands fa-linkedin" aria-hidden="true"></span>
+                <span><span class="contact-label">LinkedIn</span> <a href="https://www.linkedin.com/in/bala-kausik-vazrala-37869533/">in/bala-kausik-vazrala</a></span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== Footer (same on every page) ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-4 align-items-end">
+        <div class="col-md-7">
+          <p class="footer-name">Bala Kausik Vazrala</p>
+          <p class="footer-note">Built with HTML, CSS, Bootstrap, and JavaScript for IN4MATX 133 at UC Irvine.</p>
+        </div>
+        <div class="col-md-5">
+          <ul class="social-list">
+            <li><a href="https://github.com/bvazrala"><span class="fa-brands fa-github" aria-hidden="true"></span>GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/bala-kausik-vazrala-37869533/"><span class="fa-brands fa-linkedin" aria-hidden="true"></span>LinkedIn</a></li>
+            <li><a href="mailto:bvazrala@uci.edu"><span class="fa-solid fa-envelope" aria-hidden="true"></span>Email</a></li>
+          </ul>
+          <p class="footer-copy">&copy; <span data-current-year>2026</span> Bala Kausik Vazrala</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

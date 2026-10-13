@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bala Kausik Vazrala, computer science student at UC Irvine. Projects in machine learning, data science, and embedded systems.">
+  <title>Bala Kausik Vazrala | Computer science at UC Irvine</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Bootstrap 5.3 (layout grid, navbar, buttons, tables, forms) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css" integrity="sha384-qrALq7+6jBOZIQsNnT6xGkMDru64qD6uTlDra39xrt2SoXl4pO3FX6Roz/RpR/BS" crossorigin="anonymous">
+  <!-- Google Fonts: Schibsted Grotesk (headings, interface) and Source Serif 4 (reading text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..800&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&amp;display=swap">
+  <!-- Site styles (loaded last so they override Bootstrap) -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link visually-hidden-focusable" href="#main-content">Skip to main content</a>
+
+  <!-- ===== Site header and navigation (same on every page) ===== -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md" aria-label="Main">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><span class="brand-mark"></span>Bala Kausik Vazrala</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false">
+          <span class="navbar-toggler-icon"></span>
+          <span class="toggler-label">Menu</span>
+        </button>
+        <div class="collapse navbar-collapse" id="site-nav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- ===== Hero: headline, intro, and the graph from my CS 179 project ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <h1 id="hero-title"><span>I love to build.</span> <span>Always ready <span class="text-nowrap">to learn.</span></span></h1>
+
+        <!-- CSS grid: intro, figure, then "Right now" on phones;
+             intro and "Right now" on the left with the figure on the right on laptops -->
+        <div class="hero-grid">
+          <div class="hero-intro">
+            <p class="lead">I'm Bala Kausik Vazrala, a computer science student at UC Irvine specializing in intelligent systems, with a minor in business management. I'm open to software engineering, data science, and machine learning internships.</p>
+            <div class="hero-actions">
+              <a class="btn btn-ink" href="projects.html">See my projects</a>
+              <a class="btn btn-outline-ink" href="contact.html">Get in touch</a>
+            </div>
+          </div>
+
+          <figure class="plate plate-hero">
+            <img src="images/big-five-graph.png" width="1200" height="1000" alt="Network graph of 50 survey questions that form five colored clusters, one per personality trait">
+            <figcaption>
+              <p>Each dot is one of 50 personality survey questions. Lines join questions whose answers my CS 179 model learned to predict from one another. It was never told the Big Five traits exist, yet the questions sorted into exactly these five groups.</p>
+              <ul class="legend">
+                <li><span class="swatch swatch-e"></span>Extraversion</li>
+                <li><span class="swatch swatch-n"></span>Neuroticism</li>
+                <li><span class="swatch swatch-a"></span>Agreeableness</li>
+                <li><span class="swatch swatch-c"></span>Conscientiousness</li>
+                <li><span class="swatch swatch-o"></span>Openness</li>
+              </ul>
+            </figcaption>
+          </figure>
+
+          <aside class="now" aria-labelledby="now-title">
+            <h2 id="now-title">Right now</h2>
+            <ul>
+              <li>Mentoring 70+ incoming transfer students as a Transfer Center Peer Educator at UC Irvine.</li>
+              <li>Building Briefly with a teammate: firmware, an MQTT gateway, and a language model that runs at home.</li>
+              <li>Finishing my B.S. in computer science, expected in June 2027.</li>
+            </ul>
+            <p class="now-link"><a href="about.html">More about me</a></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Recent projects (summary list) ===== -->
+    <section class="section" aria-labelledby="work-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="work-title">Recent projects</h2>
+          <a class="section-link" href="projects.html">All project details</a>
+        </div>
+        <ul class="work-list">
+          <li>
+            <h3><a href="projects.html#briefly">Briefly</a></h3>
+            <p>An ESP32 desk station that reads you the morning without handing you a phone.</p>
+            <p class="work-context">CS 147, 2026</p>
+          </li>
+          <li>
+            <h3><a href="projects.html#yield">Yield</a></h3>
+            <p>Driving agents that differ only in how much a crash costs them, and what caution costs in speed.</p>
+            <p class="work-context">CS 175, 2026</p>
+          </li>
+          <li>
+            <h3><a href="projects.html#big-five">Big Five graphical models</a></h3>
+            <p>A model that found the five personality traits in raw survey answers without being told they exist.</p>
+            <p class="work-context">CS 179, 2026</p>
+          </li>
+          <li>
+            <h3><a href="projects.html#asl">ASL computer control</a></h3>
+            <p>Typing and media playback driven by hand signs alone, at 97% typing accuracy in testing.</p>
+            <p class="work-context">LA Hacks, 2026</p>
+          </li>
+          <li>
+            <h3><a href="projects.html#datathon">Tweet sentiment and emoji prediction</a></h3>
+            <p>A BERT classifier that reads tweets and guesses the emoji, with a public dashboard.</p>
+            <p class="work-context">UCI Datathon, 2026</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer (same on every page) ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-4 align-items-end">
+        <div class="col-md-7">
+          <p class="footer-name">Bala Kausik Vazrala</p>
+          <p class="footer-note">Built with HTML, CSS, Bootstrap, and JavaScript for IN4MATX 133 at UC Irvine.</p>
+        </div>
+        <div class="col-md-5">
+          <ul class="social-list">
+            <li><a href="https://github.com/bvazrala"><span class="fa-brands fa-github" aria-hidden="true"></span>GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/bala-kausik-vazrala-37869533/"><span class="fa-brands fa-linkedin" aria-hidden="true"></span>LinkedIn</a></li>
+            <li><a href="mailto:bvazrala@uci.edu"><span class="fa-solid fa-envelope" aria-hidden="true"></span>Email</a></li>
+          </ul>
+          <p class="footer-copy">&copy; <span data-current-year>2026</span> Bala Kausik Vazrala</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1044 @@
+/* ==========================================================================
+   styles.css: custom styles for Bala Kausik Vazrala's portfolio
+   Loaded after Bootstrap 5.3, so rules here override Bootstrap's defaults.
+
+   Contents
+     1. Design tokens (colors, fonts, Bootstrap variable overrides)
+     2. Base type, links, and focus
+     3. Shared layout (page headers, sections, figures)
+     4. Header and navigation
+     5. Buttons
+     6. Home page
+     7. About page
+     8. Projects page
+     9. Contact page
+    10. Footer
+    11. Larger screens (responsive adjustments)
+   ========================================================================== */
+
+
+/* 1. Design tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Palette: paper and ink, plus one action blue for links and focus */
+  --paper: #ffffff;
+  --plate: #eef1f5;      /* background behind figures */
+  --ink: #18202e;        /* main text */
+  --graphite: #4b5567;   /* secondary text */
+  --rule: #d3d9e2;       /* hairlines and borders */
+  --field: #8792a6;      /* form field borders (3:1 against white) */
+  --action: #1f55b8;     /* links, focus rings */
+  --action-strong: #163f8a;
+  --error: #b42318;
+
+  /* The five trait colors from the Big Five graph on the home page */
+  --trait-e: #d0453f;    /* Extraversion */
+  --trait-n: #7b55c0;    /* Neuroticism */
+  --trait-a: #23885a;    /* Agreeableness */
+  --trait-c: #2463d1;    /* Conscientiousness */
+  --trait-o: #c47f12;    /* Openness */
+
+  /* Google Fonts, each with fallbacks in case the font fails to load */
+  --font-sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+
+  /* Hand the palette and fonts to Bootstrap so its components match */
+  --bs-body-font-family: var(--font-serif);
+  --bs-body-color: var(--ink);
+  --bs-body-bg: var(--paper);
+  --bs-emphasis-color: var(--ink);
+  --bs-border-color: var(--rule);
+  --bs-link-color-rgb: 31, 85, 184;
+  --bs-link-hover-color-rgb: 22, 63, 138;
+  --bs-form-invalid-color: #b42318;
+  --bs-form-invalid-border-color: #b42318;
+}
+
+
+/* 2. Base type, links, and focus
+   -------------------------------------------------------------------------- */
+body {
+  font-size: 1.0625rem;          /* 17px on phones, 18px on large screens */
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+h1 {
+  font-size: 2.25rem;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: 1.625rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.1875rem;
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: var(--action);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--action-strong);
+}
+
+/* One clear focus ring for keyboard users everywhere on the site */
+:focus-visible {
+  outline: 3px solid var(--action);
+  outline-offset: 3px;
+}
+
+.lead {
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Bootstrap's visually-hidden-focusable keeps this off screen until it gets focus */
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1100;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  background-color: var(--ink);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.skip-link:hover {
+  color: #ffffff;
+}
+
+
+/* 3. Shared layout
+   -------------------------------------------------------------------------- */
+.page-header {
+  padding: 2.5rem 0 2rem;
+}
+
+.page-header .lead {
+  max-width: 40rem;
+  margin-bottom: 0;
+}
+
+.section {
+  padding: 3rem 0 3.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+/* Let grid columns shrink below their content's width, so wide tables
+   scroll inside their own box instead of widening the whole page */
+main .row > * {
+  min-width: 0;
+}
+
+/* Keep long-form text to a comfortable line length */
+.prose p {
+  max-width: 38rem;
+}
+
+/* Figures sit on a pale "plate", like plates in a printed report */
+.plate {
+  margin: 0;
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: var(--plate);
+}
+
+.plate img,
+.plate .clip {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+
+.plate figcaption {
+  margin-top: 0.875rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--graphite);
+}
+
+.plate figcaption p {
+  margin-bottom: 0.75rem;
+}
+
+/* Trait legend under the home page graph */
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: 0.35rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink);
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.swatch {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+}
+
+.swatch-e { background-color: var(--trait-e); }
+.swatch-n { background-color: var(--trait-n); }
+.swatch-a { background-color: var(--trait-a); }
+.swatch-c { background-color: var(--trait-c); }
+.swatch-o { background-color: var(--trait-o); }
+
+/* Tables (education on About, results on Projects) */
+.table {
+  --bs-table-color: var(--ink);
+  --bs-table-border-color: var(--rule);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+}
+
+.table caption {
+  padding-top: 0;
+  font-size: 0.875rem;
+  color: var(--graphite);
+}
+
+.table thead th {
+  font-weight: 600;
+  color: var(--graphite);
+  border-bottom: 2px solid var(--ink);
+  vertical-align: bottom;
+}
+
+.table td,
+.table th {
+  padding: 0.6rem 0.5rem;     /* roomier from the md breakpoint up */
+}
+
+.table .num {
+  text-align: right;
+}
+
+/* Contain visually hidden text inside the scrolling box on small phones */
+.table-responsive {
+  position: relative;
+}
+
+/* Keep "Speed-heavy" and the other setting names on one line */
+.results-table td:first-child {
+  white-space: nowrap;
+}
+
+/* Lists shown as small outlined tags (toolkit) */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-list li {
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+}
+
+
+/* 4. Header and navigation
+   -------------------------------------------------------------------------- */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  background-color: var(--paper);
+}
+
+.site-header .navbar {
+  --bs-navbar-color: #4b5567;
+  --bs-navbar-hover-color: #18202e;
+  --bs-navbar-active-color: #18202e;
+  --bs-navbar-brand-color: #18202e;
+  --bs-navbar-brand-hover-color: #18202e;
+  padding: 0.9rem 0;
+  font-family: var(--font-sans);
+}
+
+.site-header .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+}
+
+/* Five-node mark from the favicon, drawn as a background image */
+.brand-mark {
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url("../images/favicon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.site-header .nav-link {
+  font-weight: 500;
+}
+
+.site-header .nav-link.active {
+  font-weight: 700;
+}
+
+.site-header .nav-link:focus-visible,
+.site-header .navbar-toggler:focus-visible {
+  outline: 3px solid var(--action);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* Menu button: Bootstrap hides it on wider screens, so don't set display here */
+.site-header .navbar-toggler {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--field);
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.site-header .navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.site-header .navbar-toggler-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.toggler-label {
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+/* On phones the menu opens as a stacked list */
+.site-header .navbar-nav {
+  padding-top: 0.75rem;
+}
+
+.site-header .navbar-nav .nav-link {
+  padding: 0.6rem 0.75rem;
+  border-left: 3px solid transparent;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  border-left-color: var(--ink);
+}
+
+
+/* 5. Buttons (custom colors through Bootstrap's button variables)
+   -------------------------------------------------------------------------- */
+.btn {
+  --bs-btn-font-family: var(--font-sans);
+  --bs-btn-font-weight: 600;
+  --bs-btn-padding-y: 0.7rem;
+  --bs-btn-padding-x: 1.25rem;
+  --bs-btn-border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.btn-sm {
+  --bs-btn-padding-y: 0.4rem;
+  --bs-btn-padding-x: 0.85rem;
+  --bs-btn-font-size: 0.875rem;
+}
+
+.btn-ink {
+  --bs-btn-color: #ffffff;
+  --bs-btn-bg: #18202e;
+  --bs-btn-border-color: #18202e;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #1f55b8;
+  --bs-btn-hover-border-color: #1f55b8;
+  --bs-btn-active-color: #ffffff;
+  --bs-btn-active-bg: #163f8a;
+  --bs-btn-active-border-color: #163f8a;
+  --bs-btn-focus-shadow-rgb: 31, 85, 184;
+}
+
+.btn-outline-ink {
+  --bs-btn-color: #18202e;
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: #18202e;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #18202e;
+  --bs-btn-hover-border-color: #18202e;
+  --bs-btn-active-color: #ffffff;
+  --bs-btn-active-bg: #18202e;
+  --bs-btn-active-border-color: #18202e;
+  --bs-btn-focus-shadow-rgb: 31, 85, 184;
+}
+
+
+/* 6. Home page
+   -------------------------------------------------------------------------- */
+.hero {
+  padding: 2.5rem 0 3.5rem;
+}
+
+.hero h1 {
+  margin-bottom: 1.75rem;
+  font-size: 2.625rem;
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+/* Each sentence of the headline gets its own line */
+.hero h1 > span {
+  display: block;
+}
+
+/* Phones: intro, figure, then "Right now", stacked in source order */
+.hero-grid {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-areas:
+    "intro"
+    "figure"
+    "now";
+}
+
+.hero-intro {
+  grid-area: intro;
+}
+
+.plate-hero {
+  grid-area: figure;
+  padding: 1.25rem;
+}
+
+.hero .now {
+  grid-area: now;
+}
+
+.hero .lead {
+  max-width: 34rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.section-head h2 {
+  margin-bottom: 0;
+}
+
+.section-link {
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.work-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.work-list li {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.work-list h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1.1875rem;
+}
+
+.work-list h3 a {
+  color: var(--ink);
+  text-decoration-color: var(--rule);
+}
+
+.work-list h3 a:hover {
+  color: var(--action);
+  text-decoration-color: currentColor;
+}
+
+.work-list p {
+  margin-bottom: 0.2rem;
+}
+
+.work-list .work-context {
+  margin-bottom: 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--graphite);
+}
+
+.now {
+  padding: 1.5rem;
+  border-radius: 6px;
+  background-color: var(--plate);
+}
+
+.now h2 {
+  font-size: 1.1875rem;
+}
+
+.now ul {
+  padding-left: 1.1rem;
+}
+
+.now li {
+  margin-bottom: 0.6rem;
+}
+
+.now-link {
+  margin-bottom: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+
+/* 7. About page
+   -------------------------------------------------------------------------- */
+.sidebar h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.glance-list {
+  margin: 0 0 2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.glance-list div {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.glance-list dt {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--graphite);
+}
+
+.glance-list dd {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.page-toc ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+.about-block {
+  margin-bottom: 3.5rem;
+}
+
+.role {
+  padding: 1.25rem 0 0.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.role h3 {
+  margin-bottom: 0.2rem;
+}
+
+.role-meta {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--graphite);
+}
+
+.role-meta span:first-child {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.role ul {
+  padding-left: 1.2rem;
+}
+
+.role li {
+  max-width: 40rem;
+  margin-bottom: 0.4rem;
+}
+
+.course-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+/* Two columns per row: course code, then course name */
+.course-list li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  column-gap: 0.5rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.45;
+}
+
+/* Courses without a code still line up in the name column */
+.course-list li > span:only-child {
+  grid-column: 2;
+}
+
+.course-code {
+  padding-top: 0.1rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--graphite);
+}
+
+#coursework h3,
+#toolkit h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+
+/* 8. Projects page
+   -------------------------------------------------------------------------- */
+.jump-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+.project {
+  padding: 3rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.project-header {
+  margin-bottom: 1.5rem;
+}
+
+.project-header h2 {
+  margin-bottom: 0.3rem;
+  font-size: 1.875rem;
+  letter-spacing: -0.025em;
+}
+
+.project-tagline {
+  margin-bottom: 0;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  color: var(--graphite);
+}
+
+.project-summary {
+  font-size: 1.1875rem;
+  line-height: 1.55;
+}
+
+.project h3 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1rem;
+}
+
+/* Lists that follow a project subheading (adjacent-sibling selector) */
+.project h3 + ul {
+  padding-left: 1.2rem;
+}
+
+.project h3 + ul li {
+  margin-bottom: 0.4rem;
+}
+
+.project-facts {
+  display: grid;
+  gap: 0.4rem;
+  margin: 1.75rem 0 1.25rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+}
+
+.project-facts div {
+  display: grid;
+  grid-template-columns: 6.25rem 1fr;
+  gap: 1rem;
+}
+
+.project-facts dt {
+  font-weight: 600;
+  color: var(--graphite);
+}
+
+.project-facts dd {
+  margin: 0;
+}
+
+.project-links,
+.social-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.project-links {
+  gap: 0.75rem 1.75rem;
+}
+
+/* Space between an icon and its link text */
+.project-links a > span[aria-hidden="true"],
+.social-list a > span[aria-hidden="true"] {
+  margin-right: 0.45rem;
+}
+
+/* Yield's stacked video comparison */
+.plate-clips {
+  margin-bottom: 2rem;
+}
+
+.clip-stack {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.clip-label {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.clip-controls {
+  margin-top: 1.25rem;
+}
+
+
+/* 9. Contact page
+   -------------------------------------------------------------------------- */
+.form-panel h2,
+.contact-panel h2 {
+  font-size: 1.375rem;
+}
+
+.form-intro {
+  max-width: 34rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--graphite);
+}
+
+.contact-form .form-label {
+  margin-bottom: 0.4rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.contact-form .form-control,
+.contact-form .form-select {
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  border: 1px solid var(--field);
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.contact-form .form-control:focus,
+.contact-form .form-select:focus {
+  border-color: var(--action);
+  outline: 3px solid var(--action);
+  outline-offset: 1px;
+  box-shadow: none;
+}
+
+.contact-form .invalid-feedback {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+}
+
+.form-status {
+  margin-top: 1.25rem;
+  font-family: var(--font-sans);
+}
+
+/* Only draw the status box once there is a message in it */
+.form-status:not(:empty) {
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--action);
+  background-color: var(--plate);
+}
+
+.contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-sans);
+}
+
+.contact-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.contact-list li > span:first-child {
+  width: 1.25rem;
+  color: var(--graphite);
+  text-align: center;
+}
+
+.contact-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--graphite);
+}
+
+
+/* 10. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  margin-top: 4rem;
+  padding: 2.5rem 0 2rem;
+  background-color: var(--ink);
+  color: #e8ecf2;
+  font-family: var(--font-sans);
+}
+
+.site-footer p {
+  margin-bottom: 0.35rem;
+}
+
+.footer-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.footer-note,
+.footer-copy {
+  font-size: 0.9375rem;
+  color: #b7c0ce;
+}
+
+.site-footer a {
+  color: #b9cffb;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.site-footer a:focus-visible {
+  outline-color: #b9cffb;
+}
+
+.social-list {
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+
+/* 11. Larger screens
+   -------------------------------------------------------------------------- */
+
+/* Tablets and up (Bootstrap's md breakpoint) */
+@media (min-width: 768px) {
+  /* Navbar sits on one line, so drop the phone menu styling */
+  .site-header .navbar-nav {
+    padding-top: 0;
+  }
+
+  .site-header .navbar-nav .nav-link {
+    padding: 0.4rem 0.9rem;
+    border-left: 0;
+  }
+
+  .site-header .navbar-nav .nav-link.active {
+    box-shadow: inset 0 -2px 0 var(--ink);
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .table td,
+  .table th {
+    padding: 0.65rem 0.75rem;
+  }
+
+  /* Project name on the left, description on the right */
+  .work-list li {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    column-gap: 2rem;
+  }
+
+  .work-list h3 {
+    grid-row: 1 / span 2;
+  }
+
+  .social-list {
+    justify-content: flex-end;
+  }
+
+  .footer-copy {
+    text-align: right;
+  }
+}
+
+/* Laptops and up (Bootstrap's lg breakpoint) */
+@media (min-width: 992px) {
+  body {
+    font-size: 1.125rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 1.3125rem;
+  }
+
+  .hero {
+    padding: 4rem 0 5rem;
+  }
+
+  .hero h1 {
+    margin-bottom: 2.5rem;
+    font-size: 4.5rem;
+  }
+
+  /* Intro and "Right now" on the left, the graph on the right */
+  .hero-grid {
+    grid-template-columns: 5fr 7fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "intro figure"
+      "now   figure";
+    column-gap: 3rem;
+    row-gap: 2.5rem;
+    align-items: start;
+  }
+
+  .page-header {
+    padding: 3.5rem 0 2.5rem;
+  }
+
+  .section {
+    padding: 4rem 0 4.5rem;
+  }
+
+  /* Name, description, and course/event in three columns */
+  .work-list li {
+    grid-template-columns: 15rem 1fr 11rem;
+    align-items: baseline;
+  }
+
+  .work-list h3 {
+    grid-row: auto;
+  }
+
+  .work-list .work-context {
+    text-align: right;
+  }
+
+  /* The About sidebar follows you down the page */
+  .sidebar {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .page-toc ul {
+    flex-direction: column;
+  }
+
+  .project {
+    padding: 4rem 0;
+  }
+
+  .project-header h2 {
+    font-size: 2.25rem;
+  }
+
+  .project-summary {
+    font-size: 1.3125rem;
+  }
+}

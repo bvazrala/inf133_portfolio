@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Projects by Bala Kausik Vazrala: an IoT briefing station, reinforcement learning driving agents, graphical models, hand-sign computer control, and tweet emoji prediction.">
+  <title>Projects | Bala Kausik Vazrala</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Bootstrap 5.3 (layout grid, navbar, buttons, tables, forms) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css" integrity="sha384-qrALq7+6jBOZIQsNnT6xGkMDru64qD6uTlDra39xrt2SoXl4pO3FX6Roz/RpR/BS" crossorigin="anonymous">
+  <!-- Google Fonts: Schibsted Grotesk (headings, interface) and Source Serif 4 (reading text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..800&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&amp;display=swap">
+  <!-- Site styles (loaded last so they override Bootstrap) -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link visually-hidden-focusable" href="#main-content">Skip to main content</a>
+
+  <!-- ===== Site header and navigation (same on every page) ===== -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md" aria-label="Main">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><span class="brand-mark"></span>Bala Kausik Vazrala</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false">
+          <span class="navbar-toggler-icon"></span>
+          <span class="toggler-label">Menu</span>
+        </button>
+        <div class="collapse navbar-collapse" id="site-nav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="projects.html">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="container">
+      <header class="page-header">
+        <h1>Projects</h1>
+        <p class="lead">Five things I've built in the past year, from firmware on a microcontroller to models trained on survey answers. Every figure on this page comes from the project itself.</p>
+        <nav class="jump-nav" aria-label="Projects on this page">
+          <ul>
+            <li><a href="#briefly">Briefly</a></li>
+            <li><a href="#yield">Yield</a></li>
+            <li><a href="#big-five">Big Five graphical models</a></li>
+            <li><a href="#asl">ASL computer control</a></li>
+            <li><a href="#datathon">Tweet sentiment and emoji prediction</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- ===== Project 1: Briefly ===== -->
+      <article class="project" id="briefly" aria-labelledby="briefly-title">
+        <header class="project-header">
+          <h2 id="briefly-title">Briefly</h2>
+          <p class="project-tagline">IoT AI briefing station</p>
+        </header>
+        <div class="row gy-4 gx-lg-5">
+          <div class="col-lg-5">
+            <figure class="plate">
+              <img src="images/briefly-architecture.png" width="1200" height="1076" loading="lazy" alt="Diagram of Briefly's three layers: ESP32 station, Python gateway on a laptop, and Azure cloud">
+              <figcaption>How the pieces connect: the ESP32 station talks to a Python gateway over MQTT, the gateway runs Gemma locally, and usage events go to Azure for the daily charts. <a href="images/briefly-architecture.png">Open the full-size diagram</a></figcaption>
+            </figure>
+          </div>
+          <div class="col-lg-7">
+            <p class="project-summary">An ESP32 device that reads you the morning without handing you a phone. I'm leading a team of two.</p>
+            <h3>Why it matters</h3>
+            <ul>
+              <li>The alarm keeps its own time, so a dead router can't make you sleep through it.</li>
+              <li>Summaries are generated on your own network, so nothing about your morning leaves the house.</li>
+            </ul>
+            <h3>What I did</h3>
+            <ul>
+              <li>Wrote C++ firmware around FreeRTOS tasks so the alarm keeps its own time when Wi-Fi drops.</li>
+              <li>Built a Python MQTT gateway that summarises feeds with a local LLM, keeping personal data on the home network.</li>
+              <li>Streamed device telemetry to Azure IoT Hub to chart usage patterns on a live dashboard.</li>
+            </ul>
+            <dl class="project-facts">
+              <div><dt>When</dt><dd><time datetime="2026-06">June 2026</time> to present</dd></div>
+              <div><dt>Made for</dt><dd>CS 147, Internet of Things</dd></div>
+              <div><dt>Team</dt><dd>Two people, led by me</dd></div>
+              <div><dt>Built with</dt><dd>C++, FreeRTOS, Python, MQTT, Azure IoT Hub, ESP32</dd></div>
+            </dl>
+            <ul class="project-links">
+              <li><a href="https://github.com/bvazrala/Briefly"><span class="fa-brands fa-github" aria-hidden="true"></span>Code<span class="visually-hidden"> for Briefly</span> on GitHub</a></li>
+              <li><a href="https://youtu.be/FEe-nwqJ1Is"><span class="fa-solid fa-circle-play" aria-hidden="true"></span>Demo video<span class="visually-hidden"> of Briefly</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Project 2: Yield (with embedded HTML5 video and a results table) ===== -->
+      <article class="project" id="yield" aria-labelledby="yield-title">
+        <header class="project-header">
+          <h2 id="yield-title">Yield</h2>
+          <p class="project-tagline">What safety costs in speed</p>
+        </header>
+
+        <!-- HTML5 video with fallbacks: WebM first, MP4 second, then a download link.
+             js/main.js swaps the browser controls for one button that plays both clips in sync. -->
+        <figure class="plate plate-clips">
+          <div class="clip-stack">
+            <div>
+              <p class="clip-label" id="clip-speed-label">Speed-heavy agent, collision penalty 0.2</p>
+              <video class="clip" data-compare-clip controls muted loop playsinline preload="metadata" width="1200" height="300" poster="images/yield-speed-heavy.png" aria-labelledby="clip-speed-label">
+                <source src="media/yield-speed-heavy.webm" type="video/webm">
+                <source src="media/yield-speed-heavy.mp4" type="video/mp4">
+                <p>Your browser can't play this video. <a href="media/yield-speed-heavy.mp4">Download the speed-heavy clip</a> (MP4, 55 KB).</p>
+              </video>
+            </div>
+            <div>
+              <p class="clip-label" id="clip-safety-label">Safety-heavy agent, collision penalty 10</p>
+              <video class="clip" data-compare-clip controls muted loop playsinline preload="metadata" width="1200" height="300" poster="images/yield-safety-heavy.png" aria-labelledby="clip-safety-label">
+                <source src="media/yield-safety-heavy.webm" type="video/webm">
+                <source src="media/yield-safety-heavy.mp4" type="video/mp4">
+                <p>Your browser can't play this video. <a href="media/yield-safety-heavy.mp4">Download the safety-heavy clip</a> (MP4, 28 KB).</p>
+              </video>
+            </div>
+          </div>
+          <div class="clip-controls">
+            <button type="button" class="btn btn-sm btn-outline-ink" id="play-both" hidden><span class="fa-solid fa-play" aria-hidden="true"></span><span class="play-both-label">Play both clips</span></button>
+          </div>
+          <figcaption>The green car is the agent in both clips. With a small collision penalty it weaves between lanes to get past traffic; with a large one it holds its lane and matches the cars around it. Recorded from the simulator at two frames per second.</figcaption>
+        </figure>
+
+        <div class="row gy-4 gx-lg-5">
+          <div class="col-lg-7">
+            <p class="project-summary">Training a family of driving agents that differ only in how much they are penalised for crashing, then measuring what each one trades away.</p>
+            <h3>Why it matters</h3>
+            <ul>
+              <li>Manufacturers decide how assertive a self-driving car should be, and that decision ends up inside a reward function.</li>
+              <li>Sweeping the collision penalty puts a number on what caution costs: from the most aggressive setting to the most cautious, collisions fell 79% and average speed fell 25%.</li>
+              <li>Transfer to merges and roundabouts tests whether that tuning survives a road the agent never trained on.</li>
+            </ul>
+            <h3>What I did</h3>
+            <ul>
+              <li>Trained DQN agents in highway-env, where surrounding traffic follows the Intelligent Driver and MOBIL models.</li>
+              <li>Held hyperparameters and the step budget fixed so the reward specification is the only variable.</li>
+              <li>Tested zero-shot transfer to merge and roundabout scenarios the agents never trained on.</li>
+            </ul>
+            <dl class="project-facts">
+              <div><dt>When</dt><dd>Summer 2026</dd></div>
+              <div><dt>Made for</dt><dd>CS 175, Project in AI</dd></div>
+              <div><dt>Team</dt><dd>Three people</dd></div>
+              <div><dt>Built with</dt><dd>Python, PyTorch, Stable-Baselines3, Gymnasium, highway-env</dd></div>
+            </dl>
+            <ul class="project-links">
+              <li><a href="https://github.com/bvazrala/Yield"><span class="fa-brands fa-github" aria-hidden="true"></span>Code<span class="visually-hidden"> for Yield</span> on GitHub</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-5">
+            <div class="table-responsive" role="region" aria-labelledby="yield-results-caption" tabindex="0">
+              <table class="table results-table caption-top">
+                <caption id="yield-results-caption">Results at the baseline traffic density. Each row averages three training seeds, each tested on the same 200 held-out episodes.</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Reward setting</th>
+                    <th scope="col" class="num">Collision penalty</th>
+                    <th scope="col" class="num">Collision rate</th>
+                    <th scope="col" class="num">Average speed (m/s)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Speed-heavy</td>
+                    <td class="num">0.2</td>
+                    <td class="num">62.7%</td>
+                    <td class="num">28.8</td>
+                  </tr>
+                  <tr>
+                    <td>Speed-lean</td>
+                    <td class="num">0.5</td>
+                    <td class="num">38.3%</td>
+                    <td class="num">27.8</td>
+                  </tr>
+                  <tr>
+                    <td>Balanced</td>
+                    <td class="num">1.0</td>
+                    <td class="num">34.7%</td>
+                    <td class="num">26.1</td>
+                  </tr>
+                  <tr>
+                    <td>Safety-lean</td>
+                    <td class="num">3.0</td>
+                    <td class="num">30.2%</td>
+                    <td class="num">23.9</td>
+                  </tr>
+                  <tr>
+                    <td>Safety-heavy</td>
+                    <td class="num">10.0</td>
+                    <td class="num">13.2%</td>
+                    <td class="num">21.6</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Project 3: Big Five graphical models ===== -->
+      <article class="project" id="big-five" aria-labelledby="big-five-title">
+        <header class="project-header">
+          <h2 id="big-five-title">Big Five graphical models</h2>
+          <p class="project-tagline">Structure learning over personality data</p>
+        </header>
+        <div class="row gy-4 gx-lg-5">
+          <div class="col-lg-5">
+            <figure class="plate">
+              <img src="images/big-five-adjacency.png" width="1080" height="900" loading="lazy" alt="Heatmap of learned weights between 50 questions, with five bright blocks along the diagonal">
+              <figcaption>Learned connection strength between all 50 questions, grouped by trait. The bright blocks along the diagonal mean each question depends mostly on questions from its own trait. <a href="images/big-five-adjacency.png">Open the full-size heatmap</a></figcaption>
+            </figure>
+          </div>
+          <div class="col-lg-7">
+            <p class="project-summary">Fifty survey questions go in. Five personality traits come out without the model being told what to look for.</p>
+            <h3>Why it matters</h3>
+            <ul>
+              <li>The model was never told the five traits existed. Community detection recovered all five, scoring a perfect 1.00 against the known labels.</li>
+              <li>A question's neighbours in the learned graph predict its answer, lifting accuracy from 64.5% to 77.6%.</li>
+            </ul>
+            <h3>What I did</h3>
+            <ul>
+              <li>Fit a pairwise Ising model with L1 regularisation over 50 items from the openpsychometrics Big Five dataset.</li>
+              <li>Ran community detection on the learned graph, recovering all five traits exactly.</li>
+              <li>Predicted masked responses from each question's graph neighbourhood, beating the baseline by 13 points.</li>
+            </ul>
+            <dl class="project-facts">
+              <div><dt>When</dt><dd><time datetime="2026-06">June 2026</time></dd></div>
+              <div><dt>Made for</dt><dd>CS 179, Graphical Models</dd></div>
+              <div><dt>Team</dt><dd>Three people</dd></div>
+              <div><dt>Built with</dt><dd>Python, scikit-learn, NumPy, Matplotlib</dd></div>
+            </dl>
+            <ul class="project-links">
+              <li><a href="https://github.com/bvazrala/graphical_models_big5"><span class="fa-brands fa-github" aria-hidden="true"></span>Code<span class="visually-hidden"> for the Big Five project</span> on GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Project 4: ASL computer control ===== -->
+      <article class="project" id="asl" aria-labelledby="asl-title">
+        <header class="project-header">
+          <h2 id="asl-title">ASL computer control</h2>
+          <p class="project-tagline">Typing and media control from hand signs</p>
+        </header>
+        <div class="row gy-4 gx-lg-5">
+          <div class="col-lg-5">
+            <figure class="plate">
+              <a href="https://www.youtube.com/watch?v=N3-DQ1GQZJg"><img src="images/signpc-demo.jpg" width="1200" height="720" loading="lazy" alt="Watch the SignPC demo video on YouTube"></a>
+              <figcaption>Our demo video's thumbnail shows the 21 hand landmarks MediaPipe tracks, one color per finger.</figcaption>
+            </figure>
+          </div>
+          <div class="col-lg-7">
+            <p class="project-summary">Type and drive media playback with hand signs alone. No keyboard, no mouse.</p>
+            <h3>Why it matters</h3>
+            <ul>
+              <li>97% typing accuracy in testing, which is the line between something usable and a demo.</li>
+            </ul>
+            <h3>What I did</h3>
+            <ul>
+              <li>Built the interface and media controls so users can type and run playback entirely by hand sign.</li>
+              <li>Tuned detection for the letter pairs that get confused most, then led the testing that put accuracy at 97%.</li>
+              <li>Prototyped a Gemma integration so the tool could take commands in plain language.</li>
+            </ul>
+            <dl class="project-facts">
+              <div><dt>When</dt><dd><time datetime="2026-04">April 2026</time></dd></div>
+              <div><dt>Made for</dt><dd>LA Hacks 2026</dd></div>
+              <div><dt>Built with</dt><dd>Python, OpenCV, MediaPipe, Gemma</dd></div>
+            </dl>
+            <ul class="project-links">
+              <li><a href="https://github.com/eric-vo/signpc"><span class="fa-brands fa-github" aria-hidden="true"></span>Code<span class="visually-hidden"> for ASL computer control</span> on GitHub</a></li>
+              <li><a href="https://www.youtube.com/watch?v=N3-DQ1GQZJg"><span class="fa-solid fa-circle-play" aria-hidden="true"></span>Demo video<span class="visually-hidden"> of ASL computer control</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Project 5: Tweet sentiment and emoji prediction ===== -->
+      <article class="project" id="datathon" aria-labelledby="datathon-title">
+        <header class="project-header">
+          <h2 id="datathon-title">Tweet sentiment and emoji prediction</h2>
+          <p class="project-tagline">UCI Datathon 2026</p>
+        </header>
+        <div class="row gy-4 gx-lg-5">
+          <div class="col-lg-5">
+            <figure class="plate">
+              <img src="images/datathon-confusion-matrix.png" width="938" height="790" loading="lazy" alt="Confusion matrix for ten emoji classes, with the largest counts on the diagonal">
+              <figcaption>Confusion matrix from one of the baseline models we compared (word and character TF-IDF). Its most common mistake is reading &lsquo;sob&rsquo; as &lsquo;weary&rsquo;. <a href="images/datathon-confusion-matrix.png">Open the full-size matrix</a></figcaption>
+            </figure>
+          </div>
+          <div class="col-lg-7">
+            <p class="project-summary">A BERT classifier that reads sentiment from tweets and guesses the emoji, built with a team of four.</p>
+            <h3>Why it matters</h3>
+            <ul>
+              <li>The public dashboard lets anyone check the model instead of trusting our numbers.</li>
+            </ul>
+            <h3>What I did</h3>
+            <ul>
+              <li>Fine-tuned BERT to classify tweet sentiment and predict emoji labels.</li>
+              <li>Shipped a Streamlit dashboard to explore predictions live.</li>
+            </ul>
+            <dl class="project-facts">
+              <div><dt>When</dt><dd><time datetime="2026-04">April 2026</time></dd></div>
+              <div><dt>Made for</dt><dd>UCI Datathon 2026</dd></div>
+              <div><dt>Team</dt><dd>Four people</dd></div>
+              <div><dt>Built with</dt><dd>Python, BERT, Streamlit</dd></div>
+            </dl>
+            <ul class="project-links">
+              <li><a href="https://github.com/bvazrala/uci_datathon_2026_project"><span class="fa-brands fa-github" aria-hidden="true"></span>Code<span class="visually-hidden"> for the emoji prediction project</span> on GitHub</a></li>
+              <li><a href="https://ucidatathon2026project-bvazrala.streamlit.app/"><span class="fa-solid fa-chart-line" aria-hidden="true"></span>Live dashboard<span class="visually-hidden"> for emoji prediction</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- ===== Footer (same on every page) ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row gy-4 align-items-end">
+        <div class="col-md-7">
+          <p class="footer-name">Bala Kausik Vazrala</p>
+          <p class="footer-note">Built with HTML, CSS, Bootstrap, and JavaScript for IN4MATX 133 at UC Irvine.</p>
+        </div>
+        <div class="col-md-5">
+          <ul class="social-list">
+            <li><a href="https://github.com/bvazrala"><span class="fa-brands fa-github" aria-hidden="true"></span>GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/bala-kausik-vazrala-37869533/"><span class="fa-brands fa-linkedin" aria-hidden="true"></span>LinkedIn</a></li>
+            <li><a href="mailto:bvazrala@uci.edu"><span class="fa-solid fa-envelope" aria-hidden="true"></span>Email</a></li>
+          </ul>
+          <p class="footer-copy">&copy; <span data-current-year>2026</span> Bala Kausik Vazrala</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
